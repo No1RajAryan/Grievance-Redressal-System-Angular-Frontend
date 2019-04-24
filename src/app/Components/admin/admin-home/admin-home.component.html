@@ -1,0 +1,131 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Assign In Charge</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            Posted By : {{selectedProblem.posted_by.name}}
+          </div>
+          <div class="col-6">
+            Department : {{selectedProblem.posted_by.department}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            Year : {{selectedProblem.posted_by.year}}
+          </div>
+          <div class="col-6">
+            Registration Number : {{selectedProblem.posted_by.reg_no}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            Description :
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            {{selectedProblem.content}}
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+          <div class="col-3">
+            In Charge :
+          </div>
+          <div class="col-6">
+            <form [formGroup]="inCHargeForm">
+
+              <div class="form-group row">
+                <select formControlName="inChargeId">
+                  <option *ngFor="let inCharge of inCharges" value="{{inCharge._id}}">{{inCharge.name}}</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <div class="col-3">
+            <button class="btn btn-primary" (click)="confirmAssignment(inCHargeForm)">OK</button>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Welcome , {{adminName}}</h2>
+  <hr />
+  <h3>Resolved Problems</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Posted By</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Registration Number</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resolvedProblems; let i=index">
+        <th>{{i+1}}</th>
+        <td>{{item.posted_by.name}}</td>
+        <td>{{item.posted_by.department}}</td>
+        <td>{{item.posted_by.year}}</td>
+        <td>{{item.posted_by.reg_no}}</td>
+        <td>{{item.content}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <h3>Unresolved Problems</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Posted By</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Registration Number</th>
+        <th>Description</th>
+        <th>Assign In Charge</th>
+        <th>Posted on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of unResolvedProblems; let i=index">
+        <th>{{i+1}}</th>
+        <td>{{item.posted_by.name}}</td>
+        <td>{{item.posted_by.department}}</td>
+        <td>{{item.posted_by.year}}</td>
+        <td>{{item.posted_by.reg_no}}</td>
+        <td>{{item.content}}</td>
+        
+        <td>
+          <button type="button" class="btn btn-primary" (click)="selectProblem(item)" data-toggle="modal"
+            data-target="#exampleModal">
+            Assign
+          </button>
+        </td>
+        <td>{{item.posted_on}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

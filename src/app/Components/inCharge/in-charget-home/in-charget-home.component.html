@@ -1,0 +1,60 @@
+<app-incharge-nav-bar></app-incharge-nav-bar>
+<div class="container">
+  <h2>Welcome , {{adminName}}</h2>
+  <hr />
+  <h3>Resolved Problems</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Posted By</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Registration Number</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resolvedProblems; let i=index">
+        <th>{{i+1}}</th>
+        <td>{{item.prob_id.posted_by.name}}</td>
+        <td>{{item.prob_id.posted_by.department}}</td>
+        <td>{{item.prob_id.posted_by.year}}</td>
+        <td>{{item.prob_id.posted_by.reg_no}}</td>
+        <td>{{item.prob_id.content}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <h3>Unresolved Problems</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Posted By</th>
+        <th>Department</th>
+        <th>Year</th>
+        <th>Registration Number</th>
+        <th>Description</th>
+        <th>Action</th>
+        <th>Posted On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of unResolvedProblems; let i=index">
+        <th>{{i+1}}</th>
+        <td>{{item.prob_id.posted_by.name}}</td>
+        <td>{{item.prob_id.posted_by.department}}</td>
+        <td>{{item.prob_id.posted_by.year}}</td>
+        <td>{{item.prob_id.posted_by.reg_no}}</td>
+        <td>{{item.prob_id.content}}</td>
+        <td>{{item.posted_on}}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="resolveProblem(item.prob_id._id)">
+            Resolve Problem
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

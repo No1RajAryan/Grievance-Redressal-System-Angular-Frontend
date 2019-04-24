@@ -1,0 +1,29 @@
+<app-user-nav-bar></app-user-nav-bar>
+<br />
+<h2>Your Problems</h2>
+<hr />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sl. No</th>
+            <th>Content</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of problems; let i=index">
+            <th>{{i+1}}</th>
+            <td>{{item.content}}</td>
+            <td>
+                <ng-container *ngIf="item.resolved; else elseTemplate">
+                    Resolved
+                </ng-container>
+                <ng-template #elseTemplate>
+                    Not Resolved
+                </ng-template>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+<app-landing-nav-bar></app-landing-nav-bar>
+<br />
+
+<form [formGroup]="loginForm">
+  <fieldset>
+    <!--label for="email_txt"  class="col-sm-2 col-form-label">Email</label>-->
+
+    Email:<input type="email" formControlName="email_txt" class="form-control" id="email_txt" placeholder="email@example.com" size="20">
+    
+   
+    <!-- <label for="pass_txt" class="col-sm-2 col-form-labe">Password</label> -->
+    Password:<input type="password" formControlName="pass_txt" class="form-control" id="pass_txt" placeholder="********" size="20">
+  
+    <button type="submit" (click)="performLogin()" class="btn btn-primary" style="margin-left:auto;margin-right:auto;display:block;margin-top:10%;margin-bottom:0%">Login</button>
+</fieldset>
+</form>

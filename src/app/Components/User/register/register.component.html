@@ -1,0 +1,49 @@
+<app-landing-nav-bar></app-landing-nav-bar>
+<br/>
+<form [formGroup]="regForm">
+    <fieldset>
+    <div class="form-group row">
+        <!-- <label for="name_txt" class="col-sm-2 col-form-label">Name</label> -->
+        <div class="col-sm-10">
+          Name:<input formControlName="name_txt" type="text" class="form-control" id="name_txt">
+        </div>
+      </div>
+      <div class="form-group row">
+          <label for="dept_txt" class="col-sm-2 col-form-label">Department:</label>
+          <div class="col-sm-10">
+            <input formControlName="dept_txt" type="text" class="form-control" id="dept_txt">
+          </div>
+        </div>
+      <div class="form-group row">
+          <!-- <label for="year_txt" class="col-sm-2 col-form-label">Year</label> -->
+          <div class="col-sm-10">
+            Year:<input formControlName="year_txt" type="text" class="form-control" id="year_txt">
+          </div>
+        </div>
+  <div class="form-group row">
+    <!-- <label for="reg_txt" class="col-sm-2 col-form-label">Reg No</label> -->
+    <div class="col-sm-10">
+      Reg No:<input type="text" formControlName="reg_txt" class="form-control" id="reg_txt">
+    </div>
+  </div>
+  <div class="form-group row">
+      <!-- <label for="email_txt"  class="col-sm-2 col-form-label">Email</label> -->
+      <div class="col-sm-10">
+       Email:<input type="email" formControlName="email_txt" class="form-control" id="email_txt" placeholder="email@example.com">
+      </div>
+    </div>
+  <div class="form-group row">
+    <!-- <label for="pass_txt" class="col-sm-2 col-form-label">Password</label> -->
+    <div class="col-sm-10">
+      Password:<input type="password" formControlName="pass_txt" class="form-control" id="pass_txt" placeholder="********">
+    </div>
+  </div>
+  <div class="form-group row">
+      <!-- <label for="cpass_txt" class="col-sm-2 col-form-label">Confirm Password</label> -->
+      <div class="col-sm-10">
+        Confirm Password:<input type="password" formControlName="cpass_txt" class="form-control" id="cpass_txt" placeholder="********">
+      </div>
+    </div>
+    <button type="submit" (click)="onSubmit()" class="btn btn-primary"style="margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:0%">Register</button>
+    </fieldset>
+</form>

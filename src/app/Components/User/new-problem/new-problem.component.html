@@ -1,0 +1,13 @@
+<app-user-nav-bar></app-user-nav-bar>.
+<br />
+<form [formGroup]="queryForm">
+  <fieldset>
+  <div class="form-group row">
+    <!-- <label for="query_txt" class="col-sm-2 col-form-label">Query</label> -->
+    <div class="col-sm-10">
+      Query:<input formControlName="query_txt" type="text" class="form-control" id="query_txt">
+    </div>
+  </div>
+  <button type="submit" (click)="onSubmit(queryForm)" class="btn btn-primary" style="margin-left:1%;margin-right:auto;display:block;margin-top:5%;margin-bottom:0%">Post</button>
+</fieldset>
+</form>
